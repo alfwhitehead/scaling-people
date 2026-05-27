@@ -31,57 +31,108 @@ Tiered: **6 top-level skills (one per book chapter, mirroring the book exactly) 
 
 ## Plugin layout
 
+Claude Code's plugin loader requires a flat `skills/<name>/SKILL.md` layout — sub-skills are siblings of top-level skills in the file system. **Tiering is preserved at the behavioral layer** (router skills + skill descriptions) rather than the file system layer.
+
 ```
-~/.claude/plugins/klick-management/
-  plugin.json
-  README.md                              ← what this is, attribution, getting started
+klick-management/                          ← this repo IS the plugin source
+  .claude-plugin/
+    plugin.json                            ← name, version, description, author
+  README.md                                ← what this is, attribution, getting started
+  LICENSE
   skills/
-    operating-principles/
-      SKILL.md                           ← top-level router (~150 words)
-      subs/
-        self-awareness-assessment/SKILL.md
-        write-working-with-me/SKILL.md
-        prep-to-say-the-hard-thing/SKILL.md
-        clarify-management-vs-leadership/SKILL.md
-    org-foundations-and-planning/
-      SKILL.md
-      subs/
-        write-mission/SKILL.md
-        write-long-term-goals/SKILL.md
-        write-operating-principles/SKILL.md
-        write-team-charter/SKILL.md
-        plan-strategic-and-financial/SKILL.md
-        design-resource-allocation/SKILL.md
-        write-okrs/SKILL.md
-        score-okrs/SKILL.md
-        define-metrics/SKILL.md
-        prep-qbr/SKILL.md
-        plan-internal-comms/SKILL.md
-        define-ownership-and-accountability/SKILL.md
-        design-operating-cadence/SKILL.md
-        audit-operating-system/SKILL.md
-    hiring/
-      SKILL.md
-      subs/                              ← 8 stubs
-    team-development/
-      SKILL.md
-      subs/                              ← 9 stubs
-    feedback-and-performance/
-      SKILL.md
-      subs/                              ← 11 stubs
-    manager-self/
-      SKILL.md
-      subs/                              ← 3 stubs
+    # Top-level router skills (one per book chapter)
+    operating-principles/SKILL.md          ← Ch 1 router
+    org-foundations-and-planning/SKILL.md  ← Ch 2 router
+    hiring/SKILL.md                        ← Ch 3 router
+    team-development/SKILL.md              ← Ch 4 router
+    feedback-and-performance/SKILL.md      ← Ch 5 router
+    manager-self/SKILL.md                  ← Conclusion router
+
+    # Ch 1 sub-skills (stubbed)
+    self-awareness-assessment/SKILL.md
+    write-working-with-me/SKILL.md
+    prep-to-say-the-hard-thing/SKILL.md
+    clarify-management-vs-leadership/SKILL.md
+
+    # Ch 2 sub-skills (built first)
+    write-mission/SKILL.md
+    write-long-term-goals/SKILL.md
+    write-operating-principles/SKILL.md
+    write-team-charter/SKILL.md
+    plan-strategic-and-financial/SKILL.md
+    design-resource-allocation/SKILL.md
+    write-okrs/SKILL.md
+    score-okrs/SKILL.md
+    define-metrics/SKILL.md
+    prep-qbr/SKILL.md
+    plan-internal-comms/SKILL.md
+    define-ownership-and-accountability/SKILL.md
+    design-operating-cadence/SKILL.md
+    audit-operating-system/SKILL.md
+
+    # Ch 3 sub-skills (stubbed) — 8 directories
+    define-talent-needs/SKILL.md
+    open-a-role/SKILL.md
+    design-interview-loop/SKILL.md
+    run-candidate-review/SKILL.md
+    check-references/SKILL.md
+    design-leader-hiring-process/SKILL.md
+    plan-onboarding/SKILL.md
+    hire-postmortem/SKILL.md
+
+    # Ch 4 sub-skills (stubbed) — 9 directories
+    design-team-structure/SKILL.md
+    diagnose-team-state/SKILL.md
+    plan-reorganization/SKILL.md
+    run-career-conversation/SKILL.md
+    plan-delegation/SKILL.md
+    plan-offsite/SKILL.md
+    design-meeting/SKILL.md
+    manage-distributed-or-changing-team/SKILL.md
+    apply-d-and-i-lens/SKILL.md
+
+    # Ch 5 sub-skills (stubbed) — 11 directories
+    run-hypothesis-coaching/SKILL.md
+    give-hard-feedback/SKILL.md
+    build-feedback-culture/SKILL.md
+    run-performance-review/SKILL.md
+    prep-comp-conversation/SKILL.md
+    manage-high-performer/SKILL.md
+    manage-steady-middle/SKILL.md
+    manage-low-performer/SKILL.md
+    manage-managers/SKILL.md
+    plan-departure/SKILL.md
+    support-through-hardship/SKILL.md
+
+    # Conclusion sub-skills (stubbed) — 3 directories
+    audit-time-and-energy/SKILL.md
+    develop-key-relationships/SKILL.md
+    reflect-on-career/SKILL.md
+
   references/
-    book-frameworks/                     ← short chapter-by-chapter summaries cited by skills
-    templates/                           ← reusable artifact templates
+    book-frameworks/                       ← short chapter-by-chapter summaries cited by skills
+    templates/                             ← reusable artifact templates
       team-charter.md
       qbr-outline.md
       okr-template.md
       metrics-writeup.md
       operating-principles-example.md
-      working-with-me.md                 ← (used by Ch 1 sub-skill)
+      working-with-me.md                   ← used by Ch 1 sub-skill
+  scripts/
+    validate-skills.py                     ← lints frontmatter, checks required sections
+  docs/
+    superpowers/specs/                     ← design specs (this file lives here)
+    superpowers/plans/                     ← implementation plans
 ```
+
+**Naming under flat layout.** Top-level router skills keep their chapter-slug names (`org-foundations-and-planning`, `feedback-and-performance`, etc.) — these are already verb-distinct from sub-skill names so collision is impossible. Sub-skills keep their verb-first action phrases (`write-mission`, `prep-qbr`, `give-hard-feedback`). No chapter prefix needed; if a future book introduces a sub-skill with the same artifact, methodology Step 3 says merge into the existing skill rather than create a duplicate.
+
+**How tiering still works.** A user (or Claude's auto-trigger) can:
+- Invoke a top-level router for a chapter overview and routing help (`/klick-management:org-foundations-and-planning` or natural-language trigger).
+- Invoke a sub-skill directly when the moment is known (`/klick-management:write-mission`).
+- Auto-trigger via description matching on either.
+
+The top-level router SKILL.md lists its sub-skills by their flat names and includes "use when X" hooks — so a user reading the router gets the same tiered mental model the original spec proposed.
 
 ## Conventions
 
