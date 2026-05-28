@@ -1,0 +1,13 @@
+{
+  "name": "scaling-people-local",
+  "owner": {
+    "name": "Klick"
+  },
+  "plugins": [
+    {
+      "name": "klick-management",
+      "source": "./klick-management",
+      "description": "Management practices from Scaling People (Claire Hughes Johnson) as Claude Code skills. Founding documents, OKRs, QBRs, team charters, hiring, team development, feedback — produce real artifacts at decision points."
+    }
+  ]
+}
