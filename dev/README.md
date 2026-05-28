@@ -6,7 +6,7 @@ This directory holds local development scaffolding that is NOT part of the publi
 
 A one-plugin marketplace declaration used to install this repo into Claude Code locally, without publishing it through the `klick-ai-playbooks` marketplace or any other shared distribution channel.
 
-The marketplace is called `scaling-people-local`. It declares one plugin (`klick-management`) whose `source` is `./klick-management` — a symlink inside this directory pointing back to the repo root (`../..`). Claude Code's marketplace loader only resolves plugin sources that are subdirectories of the marketplace root, so the symlink is what makes a same-repo standalone marketplace work.
+The marketplace is called `scaling-people-local`. It declares one plugin (`klick-management`) whose `source` is `./klick-management` — a symlink inside this directory pointing at the plugin subdir (`../../klick-management`). Claude Code's marketplace loader only resolves plugin sources that are subdirectories of the marketplace root, so the symlink is what makes a same-repo standalone marketplace work.
 
 ## Install locally
 

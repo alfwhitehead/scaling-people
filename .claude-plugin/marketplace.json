@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "klick-management",
-      "source": ".",
+      "source": "./klick-management",
       "description": "Management practices from Scaling People (Claire Hughes Johnson) as Claude Code skills. 49 sub-skills across 6 chapters — founding documents, OKRs, QBRs, hiring, team development, feedback, performance, and managing yourself. Three modes per skill: teach / draft / polish."
     }
   ]

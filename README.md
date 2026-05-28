@@ -78,7 +78,7 @@ See [docs/superpowers/specs/2026-05-27-klick-management-skill-library-design.md]
 ## Validation
 
 ```
-python3 scripts/validate-skills.py
+python3 klick-management/scripts/validate-skills.py
 ```
 
 Runs on every skill: checks frontmatter, naming, and required body structure (router / stub / built sub-skill).
