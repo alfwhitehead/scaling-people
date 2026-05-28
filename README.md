@@ -8,7 +8,7 @@ Six top-level "router" skills, one per chapter, plus 49 sub-skills.
 
 | Router | Chapter | Sub-skills |
 |---|---|---|
-| `operating-principles` | Ch 1 — Essential Operating Principles | 4 (stubbed) |
+| `operating-principles` | Ch 1 — Essential Operating Principles | **4 (built)** |
 | `org-foundations-and-planning` | Ch 2 — Foundations and Planning | **14 (built)** |
 | `hiring` | Ch 3 — A Comprehensive Hiring Approach | 8 (stubbed) |
 | `team-development` | Ch 4 — Intentional Team Development | 9 (stubbed) |
@@ -21,7 +21,7 @@ Six top-level "router" skills, one per chapter, plus 49 sub-skills.
 
 Three good first runs:
 
-1. **`/klick-management:operating-principles`** — read the chapter overview and the four sub-skills. Even as stubs, the router helps you situate where in the management toolkit you are.
+1. **`/klick-management:self-awareness-assessment`** — the grounding work the rest of the library assumes. Run this once when starting a new role or as a periodic check-in.
 2. **`/klick-management:write-team-charter`** — produces a complete team charter in 5-10 minutes (draft mode). The fastest way to feel the library.
 3. **`/klick-management:prep-qbr`** — populates a full QBR doc from the book's outline.
 
