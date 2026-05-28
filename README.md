@@ -34,14 +34,42 @@ Each sub-skill supports three modes:
 
 ## Installation
 
-This plugin installs from the Klick plugins marketplace. Add the marketplace once, then install:
+This repo is both the plugin source and a one-plugin marketplace named `scaling-people`. Install in Claude Code in two steps.
+
+**1. Add the marketplace** (one-time):
 
 ```
-# In Claude Code
-/plugin install klick-management
+/plugin marketplace add alfwhitehead/scaling-people
 ```
 
-(If the marketplace command differs in your environment, install from source by symlinking this repo into `~/.claude/plugins/klick-management` and reloading.)
+Or edit `~/.claude/settings.json` and add under `extraKnownMarketplaces`:
+
+```json
+"scaling-people": {
+  "source": {
+    "source": "github",
+    "repo": "alfwhitehead/scaling-people"
+  }
+}
+```
+
+**2. Install and enable the plugin**:
+
+```
+/plugin install klick-management@scaling-people
+```
+
+Or add to `~/.claude/settings.json` under `enabledPlugins`:
+
+```json
+"klick-management@scaling-people": true
+```
+
+Then restart Claude Code.
+
+**Updating to a new version**: `/plugin marketplace update scaling-people` then restart. Tagged releases (`v1.0.0`, etc.) on GitHub mark stable points.
+
+**Local development install** (for editing skills against a checked-out clone): see [`dev/README.md`](dev/README.md) — uses a separate `scaling-people-local` marketplace pointing at your local working tree.
 
 ## How this library was built
 
