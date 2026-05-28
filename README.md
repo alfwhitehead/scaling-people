@@ -8,22 +8,24 @@ Six top-level "router" skills, one per chapter, plus 49 sub-skills.
 
 | Router | Chapter | Sub-skills |
 |---|---|---|
-| `operating-principles` | Ch 1 — Essential Operating Principles | **4 (built)** |
-| `org-foundations-and-planning` | Ch 2 — Foundations and Planning | **14 (built)** |
-| `hiring` | Ch 3 — A Comprehensive Hiring Approach | 8 (stubbed) |
-| `team-development` | Ch 4 — Intentional Team Development | 9 (stubbed) |
-| `feedback-and-performance` | Ch 5 — Feedback and Performance Mechanisms | 11 (stubbed) |
-| `manager-self` | Conclusion — You | 3 (stubbed) |
+| `operating-principles` | Ch 1 — Essential Operating Principles | 4 (built) |
+| `org-foundations-and-planning` | Ch 2 — Foundations and Planning | 14 (built) |
+| `hiring` | Ch 3 — A Comprehensive Hiring Approach | 8 (built) |
+| `team-development` | Ch 4 — Intentional Team Development | 9 (built) |
+| `feedback-and-performance` | Ch 5 — Feedback and Performance Mechanisms | 11 (built) |
+| `manager-self` | Conclusion — You | 3 (built) |
 
-"Stubbed" = the skill exists for triggering and routing but its body is a one-line placeholder. Bodies are filled in over time as we use them.
+All 49 sub-skills are built. Each is grounded in a specific section of the book and supports three modes (teach / draft / polish).
 
 ## Getting started
 
-Three good first runs:
+Five good first runs covering different moments:
 
-1. **`/klick-management:self-awareness-assessment`** — the grounding work the rest of the library assumes. Run this once when starting a new role or as a periodic check-in.
-2. **`/klick-management:write-team-charter`** — produces a complete team charter in 5-10 minutes (draft mode). The fastest way to feel the library.
+1. **`/klick-management:self-awareness-assessment`** — the grounding work the rest of the library assumes. Run once when starting a new role or as a periodic check-in.
+2. **`/klick-management:write-team-charter`** — produces a complete team charter in 5-10 minutes. Fastest way to feel the library.
 3. **`/klick-management:prep-qbr`** — populates a full QBR doc from the book's outline.
+4. **`/klick-management:prep-to-say-the-hard-thing`** — 5-min prep before a difficult conversation.
+5. **`/klick-management:run-career-conversation`** — prep + structure for a development conversation with a direct report.
 
 Each sub-skill supports three modes:
 - **`teach`** — Socratic walk-through (10-20 min); good first time
