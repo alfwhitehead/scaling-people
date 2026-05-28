@@ -157,13 +157,17 @@ Top-level skills do NOT contain sub-skill bodies. They are routers + overviews.
 Every sub-skill opens with mode selection:
 
 ```
-Step 1: Ask which mode.
+Step 1: Use the AskUserQuestion tool to ask which mode. Default to `draft` if the user skips.
   - teach   → Socratic walk-through (10-20 min). Output: artifact + understanding.
   - draft   → 3-5 targeted questions → first draft → refinement loop (5-10 min).
   - polish  → user pastes rough version → critique against book heuristics → polished (2-5 min).
 Step 2: Run the selected mode using the rubric below.
 Step 3: Save artifact to ./docs/management/<artifact-slug>-YYYY-MM-DD.md (or user-specified path).
          If file exists, prompt before overwriting.
+
+Throughout the skill (mode selection, intake, refinement, clarification): prefer the
+AskUserQuestion tool for any question with 2-4 reasonably discrete options. Use plain
+chat only when the answer genuinely needs a sentence or paragraph of free-form text.
 ```
 
 The rubric/checklist (the book's actual guidance for that artifact) lives once in the SKILL.md so all three modes pull from the same source of truth.

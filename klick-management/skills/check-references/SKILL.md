@@ -11,11 +11,13 @@ Part of `hiring` (Chapter 3 of *Scaling People*).
 
 ## Mode
 
-Ask the user which mode to run in. Default to `draft` if they don't specify.
+Use the `AskUserQuestion` tool to ask which mode to run in. Default to `draft` if the user skips or picks "Other" without specifying.
 
 - **`teach`** — Socratic walk-through (10-20 min). Use when the user is new to this artifact or wants to internalize the framework. Walk through every heuristic in the Rubric as a question; build the artifact incrementally; explain the "why" alongside the "what."
 - **`draft`** — Targeted intake → first draft → refinement (5-10 min). Use when the user knows roughly what they want. Ask the 3-5 questions listed under "Draft-mode intake" below; produce a complete first draft; offer one round of refinement against the Rubric.
 - **`polish`** — Critique-and-polish (2-5 min). use when the user has already completed some reference calls and wants to interpret or document the findings. Critique for gaps; suggest additional questions or calls; help write the read-out.
+
+**When asking the user any question during this skill** (mode selection, intake, refinement, clarification): prefer the `AskUserQuestion` tool for any question with 2-4 reasonably discrete options (the user can always pick "Other" to free-text). Use plain chat only for questions that genuinely need a sentence or paragraph of free-form response. Multi-select questions are fine when the user could legitimately choose more than one.
 
 ## Rubric
 
